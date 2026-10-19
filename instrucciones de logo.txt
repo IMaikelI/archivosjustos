@@ -1,0 +1,301 @@
+﻿ESPECIFICACIÓN DE IDENTIDAD VISUAL Y MODIFICACIÓN DEL PROYECTO — MAXREP
+OBJETIVO GENERAL
+Definir e implementar la identidad visual de MAXREP en la aplicación web existente. Esta especificación establece la paleta de colores, la tipografía del logotipo, la tipografía general, la composición visual y las condiciones de modificación del proyecto.
+Claude debe utilizar este documento como referencia para adaptar la aplicación existente, respetando la identidad visual de MAXREP y las necesidades funcionales del sistema.
+AUTORIZACIÓN EXPLÍCITA PARA MODIFICAR EL PROYECTO:
+Tienes autorización para crear, modificar, reemplazar, reorganizar, mover o eliminar cualquier archivo del proyecto que sea necesario para conseguir una implementación completa, funcional, coherente y mantenible.
+No estás limitado a modificar los estilos CSS ni los componentes visuales. Puedes intervenir en toda la estructura del proyecto, incluyendo frontend, backend, componentes, páginas, rutas, servicios, controladores, modelos, bases de datos, configuraciones, dependencias, archivos de estilos, recursos gráficos, pruebas y documentación.
+Si la implementación requiere reconstruir componentes, reorganizar carpetas, cambiar la estructura de determinados módulos o sustituir código incompleto por una solución mejor, puedes hacerlo.
+No te limites a sugerir cambios ni a entregar fragmentos de código: realiza las modificaciones directamente en los archivos reales del proyecto utilizando las herramientas disponibles.
+Esta libertad debe utilizarse con criterio técnico. Antes de eliminar o reemplazar archivos, comprueba sus dependencias y el impacto de los cambios. Conserva las funcionalidades existentes que no entren en conflicto con los requerimientos y evita eliminar datos, configuraciones o cambios previos del usuario que no sea necesario modificar.
+Si detectas una arquitectura inadecuada, código incompleto o componentes que impiden implementar correctamente los requerimientos, puedes refactorizarlos o sustituirlos por una solución apropiada.
+No consideres que el trabajo está terminado hasta haber implementado los cambios posibles y verificado el resultado mediante las pruebas disponibles.
+1. PALETA DE COLORES
+1.1. Rojo MAX
+* HEX: #E23B3B
+* RGB: 226, 59, 59
+* Uso: texto "MAX" del logotipo, líneas decorativas rojas, elementos destacados y acentos visuales de la interfaz.
+* Función: color principal de identidad y énfasis visual.
+1.2. Blanco hueso / REP
+* HEX: #F5F5F5
+* RGB: 245, 245, 245
+* Uso: texto "REP" del logotipo, textos claros sobre fondos oscuros y elementos que requieran contraste.
+* Función: aportar claridad y contraste.
+1.3. Negro principal
+* HEX: #0A0A0A
+* RGB: 10, 10, 10
+* Uso: fondo del bloque del logotipo y superficies oscuras principales.
+* Función: generar contraste y reforzar la identidad deportiva.
+1.4. Gris oscuro del panel
+* HEX aproximado: #202020
+* RGB aproximado: 32, 32, 32
+* Uso: fondo de paneles oscuros, tablas y bloques secundarios.
+1.5. Gris de separadores
+* HEX aproximado: #4A4A4A
+* RGB aproximado: 74, 74, 74
+* Uso: bordes y líneas divisorias dentro de tablas y paneles oscuros.
+1.6. Fondo general
+* HEX: #FFFFFF
+* RGB: 255, 255, 255
+* Uso: fondo exterior de la página de referencia.
+1.7. Texto oscuro general
+* HEX aproximado: #111111
+* RGB aproximado: 17, 17, 17
+* Uso: textos sobre fondos claros, etiquetas y encabezados.
+1.8. Reglas de uso
+* Mantener #E23B3B como color de acento principal.
+* Utilizar #F5F5F5 para los elementos claros del logotipo.
+* Utilizar #0A0A0A como negro principal de marca.
+* Mantener suficiente contraste entre texto y fondo.
+* Aplicar los colores de manera consistente en todas las páginas y componentes.
+* Los valores secundarios aproximados pueden ajustarse para reproducir mejor la referencia visual.
+2. TIPOGRAFÍA DEL LOGOTIPO MAXREP
+Familia tipográfica de referencia:
+* Nombre: Anton.
+* Tipo: sans-serif condensada, display y de alto impacto.
+* Fuente: https://fonts.googleapis.com/css2?family=Anton&display=swap
+Características:
+* Letras mayúsculas.
+* Apariencia deportiva, contundente y moderna.
+* Trazos gruesos y proporciones condensadas.
+* Espaciado compacto.
+Aplicación:
+* "MAX": color #E23B3B.
+* "REP": color #F5F5F5.
+* Ambas palabras deben formar una única composición visual.
+* El logotipo debe estar centrado.
+* Aplicar inclinación o estilo itálico a "REP" si es necesario para aproximarse a la referencia.
+La fuente Anton es la referencia del logotipo, pero la inclinación de "REP" puede requerir una variante compatible o una transformación visual mediante CSS.
+No sustituyas esta tipografía por una fuente genérica sin comprobar primero las posibilidades de reproducir la composición original.
+3. TIPOGRAFÍA GENERAL PARA TODOS LOS TEXTOS
+Claude debe seleccionar e implementar la tipografía más adecuada para TODOS los textos de la aplicación, no solamente para el logotipo.
+El logotipo necesita una fuente display de alto impacto, mientras que el resto de la aplicación requiere una tipografía optimizada para la lectura y la interacción.
+3.1. Selección de la fuente principal
+Evalúa familias como:
+* Inter.
+* Roboto.
+* Manrope.
+Son alternativas orientativas. Elige la que mejor se adapte al diseño real, la tecnología y los componentes del proyecto.
+La fuente debe:
+* Ser moderna, profesional y legible.
+* Funcionar bien en escritorio, tablet y dispositivos móviles.
+* Combinar estéticamente con Anton.
+* Incluir los caracteres del español, como á, é, í, ó, ú y ñ.
+* Disponer de los pesos tipográficos necesarios.
+* Funcionar tanto en textos cortos como en párrafos extensos.
+* Mantener una apariencia consistente.
+3.2. Elementos que deben utilizar la tipografía general
+Aplica la fuente elegida a todos los elementos de texto, incluidos:
+* Títulos y subtítulos.
+* Párrafos y descripciones.
+* Menús y elementos de navegación.
+* Botones y enlaces.
+* Formularios y campos de entrada.
+* Etiquetas y ayudas contextuales.
+* Tablas, filas y encabezados.
+* Listados y tarjetas.
+* Filtros y controles de búsqueda.
+* Mensajes de error, éxito y advertencia.
+* Modales y confirmaciones.
+* Paginación.
+* Información secundaria y metadatos.
+* Estados vacíos y mensajes informativos.
+* Paneles administrativos.
+* Cualquier otro texto visible de la aplicación.
+No permitas que los componentes utilicen accidentalmente tipografías predeterminadas diferentes que rompan la consistencia visual.
+3.3. Jerarquía tipográfica
+Define tamaños, pesos y alturas de línea coherentes para:
+* Títulos principales.
+* Subtítulos.
+* Texto de párrafo.
+* Botones y acciones.
+* Formularios y validaciones.
+* Tablas y listados.
+* Navegación.
+* Metadatos y textos secundarios.
+* Mensajes de error y confirmación.
+Mantén una jerarquía visual clara. Evita diferencias arbitrarias, tamaños excesivamente pequeños o el uso indiscriminado de negrita.
+3.4. Implementación técnica
+* Define una fuente principal para el cuerpo de la aplicación.
+* Utiliza Anton para el logotipo y los elementos de marca que lo requieran.
+* Centraliza las familias, pesos y tamaños mediante variables CSS, tokens de diseño o el mecanismo equivalente del proyecto.
+* Configura fuentes de respaldo.
+* Importa únicamente las familias y variantes necesarias.
+* Comprueba que todos los componentes hereden correctamente la tipografía.
+* Revisa que botones, campos, tablas y controles nativos no utilicen fuentes predeterminadas inconsistentes.
+* Comprueba la visualización correcta de los caracteres españoles.
+* Considera el rendimiento y el tiempo de carga.
+4. COMPOSICIÓN DEL LOGOTIPO
+4.1. Contenedor
+* Fondo: #0A0A0A.
+* Ancho de referencia: aproximadamente el 90 % del área de contenido.
+* Altura de referencia: aproximadamente 132 píxeles.
+* Alineación: centrada.
+* Sin bordes visibles.
+* Sin sombras visibles en la referencia.
+Las dimensiones son orientativas y deben adaptarse al espacio disponible.
+4.2. Logotipo
+* Centrado horizontal y verticalmente.
+* Texto: MAXREP.
+* MAX en rojo #E23B3B.
+* REP en blanco #F5F5F5.
+* Tamaño grande respecto al contenedor.
+* Estilo deportivo, compacto y contundente.
+4.3. Líneas decorativas
+* Dos segmentos horizontales debajo del logotipo.
+* Color: #E23B3B.
+* Grosor aproximado: 3 píxeles.
+* Longitud aproximada de cada segmento: 61 píxeles.
+* Pequeña separación central.
+* Alineación centrada.
+Adapta las medidas proporcionalmente para conservar la composición en distintos tamaños de pantalla.
+5. ESTRUCTURA VISUAL DE REFERENCIA
+5.1. Fondo general
+* Color: #FFFFFF.
+* Márgenes laterales adecuados.
+* Diseño limpio.
+5.2. Etiqueta superior
+* Texto: "LOGO".
+* Color: #111111.
+* Tamaño aproximado: 14 píxeles.
+* Peso normal.
+* Posición superior al contenedor del logotipo.
+* Utilizar la tipografía general de la interfaz.
+5.3. Bloque del logotipo
+* Fondo: #0A0A0A.
+* Logotipo MAXREP centrado.
+* Alto contraste entre rojo, blanco y negro.
+5.4. Importación de fuentes La referencia muestra una línea de importación de Google Fonts.
+Esta importación es una configuración técnica y no debe mostrarse como texto visible al usuario final.
+Utiliza el mecanismo de carga apropiado para la tecnología existente.
+5.5. Tabla de colores
+* Fondo: #202020 aproximadamente.
+* Texto: #F5F5F5.
+* Encabezados en negrita.
+* Separadores: #4A4A4A aproximadamente.
+* Nombres de colores en la primera columna.
+* Códigos HEX en la segunda columna.
+* Muestras de color junto a los códigos.
+* Etiquetas oscuras con contraste suficiente.
+6. CRITERIOS GENERALES DE DISEÑO
+* Mantener una identidad deportiva, moderna y profesional.
+* Utilizar el rojo como acento principal.
+* Conservar el contraste entre superficies claras y oscuras.
+* Evitar mezclar tipografías sin justificación.
+* Mantener coherencia entre títulos, formularios, botones, tablas y navegación.
+* Respetar los componentes existentes cuando sean adecuados.
+* Garantizar la legibilidad en diferentes tamaños de pantalla.
+* Evitar elementos decorativos que perjudiquen la usabilidad.
+* Priorizar la claridad, accesibilidad y consistencia visual.
+* Diferenciar los elementos de marca de los elementos funcionales.
+7. AUTORIZACIÓN Y ALCANCE DE LOS CAMBIOS EN LOS ARCHIVOS
+Esta sección es obligatoria y prevalece sobre cualquier suposición de que debas conservar intacta la estructura actual del proyecto.
+Tienes libertad para realizar todas las modificaciones técnicas necesarias para conseguir el resultado solicitado.
+Puedes:
+* Crear archivos nuevos.
+* Modificar archivos existentes.
+* Reemplazar archivos cuyo contenido sea incompleto o inadecuado.
+* Eliminar archivos innecesarios después de verificar sus dependencias.
+* Mover y reorganizar archivos y carpetas.
+* Refactorizar componentes y módulos.
+* Reestructurar páginas y layouts.
+* Modificar estilos globales y específicos.
+* Actualizar rutas y mecanismos de navegación.
+* Crear o modificar servicios, controladores, modelos y endpoints.
+* Ajustar la configuración del frontend y backend.
+* Modificar dependencias y scripts cuando sea necesario.
+* Actualizar esquemas de datos y crear migraciones cuando corresponda.
+* Crear pruebas automatizadas y actualizar documentación.
+* Sustituir implementaciones provisionales por implementaciones funcionales.
+* Corregir código existente que impida cumplir los requerimientos.
+No estás limitado a los archivos de diseño ni a los archivos que inicialmente parecen relacionados con la página.
+Si un cambio de arquitectura es necesario para conseguir una solución correcta, puedes realizarlo, siempre que evalúes las dependencias, mantengas la compatibilidad y justifiques los cambios relevantes.
+REGLAS DE SEGURIDAD Y CONSERVACIÓN:
+* No elimines funcionalidades existentes que no entren en conflicto con los requerimientos.
+* No borres archivos sin comprobar su uso y sus dependencias.
+* No elimines datos reales ni ejecutes operaciones destructivas sobre bases de datos de producción.
+* No sobrescribas secretos, credenciales o archivos de entorno.
+* No expongas información sensible.
+* No reviertas cambios previos del usuario que sean ajenos a esta tarea.
+* No elimines pruebas para ocultar errores.
+* No introduzcas dependencias innecesarias.
+* No reemplaces todo el proyecto por una versión simplificada si es posible realizar una solución integrada.
+* Si modificas un contrato de API, actualiza también los módulos que dependen de él.
+Antes de realizar cambios estructurales importantes, inspecciona el estado del proyecto y sus dependencias. Si existe un sistema de control de versiones, revisa los cambios previos para evitar sobrescribir trabajo ajeno a la tarea.
+8. PROCEDIMIENTO DE TRABAJO OBLIGATORIO
+FASE 1 — INSPECCIÓN
+* Examina la estructura completa del proyecto.
+* Identifica las tecnologías utilizadas.
+* Localiza los archivos de páginas, componentes, estilos y configuraciones.
+* Identifica las fuentes actuales.
+* Detecta código incompleto, duplicado o incompatible.
+FASE 2 — PLANIFICACIÓN
+* Define qué debe modificarse.
+* Identifica qué archivos deben crearse, reemplazarse o eliminarse.
+* Determina las dependencias entre los cambios.
+* Conserva las funcionalidades válidas existentes.
+FASE 3 — IMPLEMENTACIÓN
+* Aplica la paleta de colores.
+* Implementa la tipografía del logotipo.
+* Selecciona y aplica la tipografía general.
+* Corrige las inconsistencias visuales.
+* Realiza todos los cambios estructurales y funcionales que sean necesarios.
+* Actualiza las referencias y dependencias afectadas.
+FASE 4 — VERIFICACIÓN
+* Ejecuta las pruebas disponibles.
+* Comprueba la compilación y el inicio de la aplicación cuando sea posible.
+* Revisa errores de ejecución y referencias rotas.
+* Verifica la consistencia tipográfica.
+* Comprueba la interfaz en los tamaños de pantalla pertinentes.
+* Corrige los problemas detectados.
+FASE 5 — INFORME
+* Enumera los archivos creados, modificados, movidos o eliminados.
+* Explica los cambios estructurales relevantes.
+* Indica las pruebas ejecutadas y sus resultados.
+* Identifica las limitaciones que no pudieron resolverse.
+* No afirmes que se ejecutaron pruebas que no se realizaron realmente.
+No te detengas después de elaborar el plan. Continúa con la implementación real y las verificaciones disponibles.
+9. CRITERIO FINAL DE ACEPTACIÓN
+El trabajo estará completo cuando:
+* La identidad visual de MAXREP esté aplicada correctamente.
+* El logotipo utilice la tipografía de referencia y sus colores correspondientes.
+* Todos los demás textos utilicen una tipografía elegida de forma coherente.
+* La jerarquía tipográfica sea consistente.
+* Los cambios estén integrados en la arquitectura real del proyecto.
+* Los archivos necesarios hayan sido creados, modificados o reorganizados.
+* Las funcionalidades existentes relevantes sigan funcionando.
+* Las pruebas disponibles hayan sido ejecutadas y sus resultados estén documentados.
+* Los problemas y las dependencias pendientes estén identificados claramente.
+No consideres terminado el trabajo por el mero hecho de haber cambiado los colores o las fuentes.
+Debes comprobar el resultado completo y realizar las modificaciones necesarias para conseguir una implementación coherente y funcional.
+10. RESUMEN DE REFERENCIA
+MARCA: MAXREP
+COLORES:
+* Rojo MAX: #E23B3B.
+* Blanco hueso / REP: #F5F5F5.
+* Negro principal: #0A0A0A.
+* Gris oscuro del panel: #202020 aproximadamente.
+* Gris de separadores: #4A4A4A aproximadamente.
+* Fondo general: #FFFFFF.
+* Texto oscuro: #111111 aproximadamente.
+TIPOGRAFÍA DEL LOGOTIPO:
+* Anton.
+* Estilo condensado, deportivo y de alto impacto.
+* MAX en rojo.
+* REP en blanco, con inclinación visual si corresponde.
+TIPOGRAFÍA GENERAL:
+* Seleccionada por Claude según el proyecto.
+* Evaluar Inter, Roboto o Manrope.
+* Aplicar de manera consistente a todos los textos.
+PERMISOS DE MODIFICACIÓN:
+* Crear, modificar, reemplazar, mover, reorganizar o eliminar cualquier archivo que sea necesario.
+* Refactorizar componentes y módulos cuando corresponda.
+* Modificar frontend, backend, estilos, configuraciones, dependencias, pruebas y documentación.
+* Mantener la integridad de los datos, las funcionalidades válidas y los cambios ajenos a la tarea.
+INSTRUCCIÓN FINAL PARA CLAUDE:
+Inspecciona el proyecto completo, identifica los archivos y componentes que necesitan cambios y aplica esta especificación directamente sobre el código existente.
+Tienes autorización para modificar cualquier archivo necesario, sin limitarte a los archivos visuales. Realiza los cambios estructurales, técnicos y de diseño que sean necesarios para obtener el resultado solicitado.
+No te limites a recomendar modificaciones ni a entregar ejemplos aislados. Implementa, integra, verifica y documenta el resultado real.
+Si alguna parte no puede completarse por falta de herramientas, permisos, credenciales o infraestructura externa, realiza todo el trabajo independiente que sí sea posible y documenta exactamente qué queda pendiente.
+FIN DE LA ESPECIFICACIÓN — MAXREP
+Guarda el contenido completo como identidad_visual_maxrep.txt. Con esta versión, Claude recibe autorización explícita para modificar toda la estructura necesaria del proyecto, con la precaución de conservar los datos y las funcionalidades que no sea necesario alterar.

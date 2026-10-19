@@ -1,0 +1,371 @@
+﻿Especificación de Casos de Uso - MaxRep
+Documentación detallada de los casos de uso para la plataforma de gimnasio MaxRep, incluyendo interacciones visuales, estados de la interfaz de usuario y flujos completos según la estructura del sistema.
+CU-01: Registrarse
+Campo
+	Detalle
+	Identificador
+	CU-01
+	Nombre descriptivo
+	Registro de Usuario o Profesor
+	Descripción
+	Permite a un visitante crear una cuenta nueva eligiendo entre el rol de "Usuario" (alumno) o "Profesor" para acceder a las funciones del sistema.
+	Actores
+	Visitante no registrado, Sistema.
+	Precondiciones
+	El visitante se encuentra en la pantalla de "Registrarse" y no posee una sesión activa.
+	Post condiciones
+	Se genera el registro en la base de datos, se asigna el rol correspondiente y se redirige automáticamente al Inicio con la sesión iniciada.
+	Secuencia Normal
+#
+	Acción (actor)
+	Reacción (sistema)
+	1
+	El actor navega a la vista de Registro.
+	El sistema renderiza en pantalla dos tarjetas interactivas grandes con los títulos "USUARIO" y "PROFESOR".
+	2
+	El actor posiciona el mouse sobre la tarjeta "USUARIO".
+	El sistema aplica un efecto hover: la tarjeta se eleva 2 píxeles, el borde cambia al color corporativo de MaxRep y proyecta una sombra paralela (box-shadow).
+	3
+	El actor hace clic en la tarjeta seleccionada.
+	El sistema resalta la tarjeta, la marca como activa y despliega un formulario con una transición suave hacia abajo (fade-in slide-down) pidiendo los datos personales.
+	4
+	El actor completa los datos y posiciona el cursor sobre el botón "Registrarse".
+	El botón "Registrarse" reduce ligeramente su opacidad (90%), cambia el cursor a pointer y muestra un sutil resplandor.
+	5
+	El actor hace clic en "Registrarse".
+	El sistema deshabilita el botón, reemplaza su texto por un ícono de carga (spinner), valida la información y al ser correcta, redirige a la pestaña "Inicio".
+	Excepciones
+#
+	Acción (actor)
+	Reacción (sistema)
+	1.1
+	En el caso de que el correo ingresado ya exista en la base de datos y el actor haga clic en "Registrarse".
+	El sistema restaura el estado del botón, pinta el borde del input de correo en rojo y despliega un pequeño tooltip de error debajo del campo diciendo "Este correo ya está en uso".
+	1.2
+	El actor ingresa una contraseña que no cumple los requisitos mínimos (ej. sin mayúsculas o números).
+	 El sistema bloquea el registro, resalta el input en rojo y despliega una lista animada (fade-in) marcando los requisitos faltantes.
+	1.3
+	 El actor deja campos obligatorios vacíos y presiona "Registrarse".
+	El sistema realiza un scroll suave hacia el primer campo vacío, le aplica un efecto de agitación (shake) y muestra un asterisco rojo.
+	1.4
+	El actor deja campos obligatorios vacíos y presiona "Registrarse". 
+	El sistema realiza un scroll suave hacia el primer campo vacío, le aplica un efecto de agitación (shake) y muestra un asterisco rojo
+
+
+	1.5
+	Se pierde la conexión a internet durante el envío. 
+	 El botón detiene el ícono de carga (spinner), se torna gris, y un toast rojo indica "Error de red".
+
+
+	
+
+Importancia
+	Vital
+	Urgencia
+	Inmediatamente
+	Comentarios
+	El diseño debe asegurar que la selección de rol sea lo primero y más intuitivo visualmente.
+	CU-02: Perfil
+Campo
+	Detalle
+	Identificador
+	CU-02
+	Nombre descriptivo
+	Gestión de Perfil de Usuario
+	Descripción
+	Permite al actor visualizar, poner información en su cuenta y editar su perfil personal.
+	Actores
+	Usuario o Profesor (logueado).
+	Precondiciones
+	El actor debe haber iniciado sesión y estar en la sección "Perfil".
+	Post condiciones
+	La información actualizada se guarda en la base de datos y se refleja inmediatamente en la interfaz.
+	Secuencia Normal
+#
+	Acción (actor)
+	Reacción (sistema)
+	1
+	El actor ingresa a la vista "Perfil".
+	El sistema muestra la información actual en modo lectura (campos deshabilitados) y un botón "EDITAR PERFIL".
+	2
+	El actor pasa el mouse sobre "EDITAR PERFIL" y hace clic.
+	El botón se sombrea al hacer hover. Al hacer clic, el sistema transforma los textos estáticos en cajas de texto editables (inputs) con bordes resaltados para "PONER INFO A LA CUENTA". Aparece el botón "Guardar Cambios".
+	3
+	El actor ingresa nuevos datos (ej. peso, altura, objetivos) y hace clic en "Guardar Cambios".
+	El sistema valida la integridad de los datos, envía la actualización, muestra una notificación tipo toast de color verde en la esquina superior derecha ("Perfil actualizado") y devuelve la vista a modo lectura.
+	Excepciones
+#
+	Acción (actor)
+	Reacción (sistema)
+	2.1
+	En el caso de que el actor introduzca un dato inválido (ej. letras en el campo peso) y presione guardar.
+	El sistema bloquea el guardado, agita visualmente (animación CSS shake) el campo con error, y cambia el borde del mismo a color rojo vivo.
+	2.2
+	El actor sube una foto de perfil que supera los 5MB o en formato no admitido.
+	El sistema rechaza el archivo, oscurece la previsualización y muestra un globo de texto indicando "Formato inválido o excede 5MB".
+	2.3
+	La sesión expira mientras el actor está en modo edición. 
+	Al guardar, el sistema oscurece la pantalla (backdrop-filter) y lanza un modal exigiendo reingresar la contraseña para reautenticar.
+
+
+	
+
+Importancia
+	Importante
+	Urgencia
+	Hay presión
+	Comentarios
+	La transición de modo lectura a modo edición debe ser fluida sin recargar la página.
+	CU-03: Inicio
+Campo
+	Detalle
+	Identificador
+	CU-03
+	Nombre descriptivo
+	Dashboard Principal (Inicio)
+	Descripción
+	Permite al usuario visualizar un resumen general de su actividad, rutinas próximas y métricas apenas entra al sistema.
+	Actores
+	Usuario / Profesor.
+	Precondiciones
+	Estar autenticado en el sistema.
+	Post condiciones
+	Se muestran los atajos a otras secciones y la información resumida actualizada.
+	Secuencia Normal
+#
+	Acción (actor)
+	Reacción (sistema)
+	1
+	El actor entra al sistema tras el login o hace clic en "Inicio" en el menú.
+	El sistema muestra un estado de carga estructurado (skeleton loader) mientras recupera los datos y luego renderiza el Dashboard con paneles/tarjetas (Widgets).
+	2
+	El actor mueve el cursor sobre las distintas tarjetas de resumen (ej. Resumen de Rutina).
+	El sistema aplica una ligera escala a la tarjeta (transform: scale(1.02)) y profundiza la sombra de la caja para indicar interactividad.
+	Excepciones
+#
+	Acción (actor)
+	Reacción (sistema)
+	3.1
+	En el caso de que haya problemas de conexión al cargar el Dashboard.
+	El sistema detiene el skeleton loader, muestra un ícono de advertencia gris y un botón de "Reintentar conexión" con efecto hover visible.
+	3.2
+	El usuario es nuevo y aún no tiene métricas ni rutinas.
+	El sistema reemplaza los gráficos por ilustraciones de estado vacío (empty states) con botones de llamada a la acción ("Crear tu primera rutina").
+	
+
+Importancia
+	Vital
+	Urgencia
+	Inmediatamente
+	Comentarios
+	El inicio actúa como el HUB central. Las transiciones visuales deben ser muy rápidas.
+	CU-04: Calculadora RM
+Campo
+	Detalle
+	Identificador
+	CU-04
+	Nombre descriptivo
+	Calcular Repetición Máxima (RM)
+	Descripción
+	Permite al actor estimar su peso máximo para una repetición (1RM) ingresando el peso levantado y las repeticiones, seleccionando una fórmula específica.
+	Actores
+	Usuario / Profesor.
+	Precondiciones
+	El actor está en cualquier pestaña.
+	Post condiciones
+	El sistema expone los resultados (1RM y porcentajes) en pantalla.
+	Secuencia Normal
+#
+	Acción (actor)
+	Reacción (sistema)
+	1
+	El actor hace clic en "ELEGIR MÉTODO DE CÁLCULO".
+	El sistema despliega un menú (dropdown) con fondo blanco y ligera sombra de profundidad. Al pasar el mouse por las opciones (ej. Brzycki, Epley), se resalta cada ítem en gris claro.
+	2
+	El actor selecciona una opción y procede a "PONER INFO A CALCULAR" (Peso y Repeticiones).
+	El sistema cierra el desplegable. Al hacer foco (focus) en los campos de entrada, su borde se ilumina (outline azul o primario).
+	3
+	El actor pasa el mouse y hace clic en "Calcular".
+	El botón se oscurece al hover. Al hacer clic, el sistema genera el cálculo matemático instantáneamente y despliega hacia abajo (acordeón o slide-down) un panel con el resultado destacado en texto grande.
+	Excepciones
+#
+	Acción (actor)
+	Reacción (sistema)
+	4.1
+	En el caso de que el actor ingrese más de 40 repeticiones.
+	El sistema muestra un icono de alerta amarillo junto al campo y un mensaje dinámico indicando: "Las fórmulas son menos precisas con altas repeticiones".
+	4.2
+	El actor ingresa un peso negativo o el número cero.
+	El sistema limpia instantáneamente el campo al perder el foco y desactiva el botón "Calcular".
+	4.3
+	El actor presiona "Calcular" sin haber elegido un método de la lista. 
+	El botón "ELEGIR MÉTODO" parpadea (blink) en color primario para dirigir la atención del usuario.
+	
+
+Importancia
+	Quedaría bien
+	Urgencia
+	Puede esperar
+	Comentarios
+	Añadir animación a la aparición del resultado mejora la experiencia (UX).
+	CU-05: Rutina
+Campo
+	Detalle
+	Identificador
+	CU-05
+	Nombre descriptivo
+	Gestión y Visualización de Rutinas
+	Descripción
+	Engloba las acciones de crear una rutina, editar una existente, conectar al alumno con un profesor mediante código, y permite al profesor ver las rutinas de sus alumnos.
+	Actores
+	Usuario (Alumno), Profesor.
+	Precondiciones
+	El actor está en la pestaña "Rutina".
+	Post condiciones
+	Las rutinas quedan guardadas/editadas o el alumno queda vinculado a un profesor.
+	Secuencia Normal
+#
+	Acción (actor)
+	Reacción (sistema)
+	1
+	El actor (Profesor) hace clic en "CREAR RUTINA".
+	El sistema abre un lienzo con botones de "+ Agregar Ejercicio". Al pasar el mouse por estos botones, giran ligeramente (rotación css) para invitar a la acción.
+	2
+	El actor (Usuario) hace clic en "ENTRAR A RUTINA HECHA (EDITAR)".
+	El sistema carga la rutina del día. Los ejercicios se muestran en tarjetas arrastrables (drag and drop) que cambian a un estado flotante y sombreado al agarrarlos.
+	3
+	El actor (Usuario) hace clic en "CONECTARSE CON PROFESOR".
+	El sistema oscurece el fondo (backdrop filter: blur) y despliega una ventana modal (pop-up) en el centro de la pantalla solicitando "INTRODUCIR CÓDIGO DE PROFESOR".
+	4
+	El actor introduce el código y hace hover sobre el botón "Vincular".
+	El botón se ilumina. Al hacer clic, el sistema verifica la base de datos, cierra el modal y muestra un check verde animado indicando vinculación exitosa.
+	5
+	El actor (Profesor) entra a "RUTINAS ALUMNOS".
+	El sistema presenta una lista de alumnos vinculados. Las filas de la tabla cambian de color sutilmente al pasar el mouse por encima (efecto hover row).
+	Excepciones
+#
+	Acción (actor)
+	Reacción (sistema)
+	5.1
+	En el caso de que el Usuario ingrese un código de profesor inválido.
+	El sistema hace temblar (shake) la caja de texto en el modal y muestra el texto "Código no encontrado" en color rojo debajo de la misma, sin cerrar la ventana.
+	5.2
+	El Profesor intenta guardar una rutina sin añadir ningún ejercicio.
+	El botón de guardado cambia a "Añade al menos un ejercicio" y se deshabilita hasta que el lienzo no esté vacío.
+
+
+	5.3
+	Dos usuarios intentan editar la misma rutina simultáneamente (colisión). 
+	El sistema bloquea el guardado del segundo usuario y muestra un modal advirtiendo "Esta rutina fue modificada por otro usuario recientemente. Por favor, recarga la página".
+	
+
+Importancia
+	Vital
+	Urgencia
+	Hay presión
+	Comentarios
+	Es el corazón operativo de la app. Las micro-interacciones (hover, drag) son clave para que no sea monótono.
+	CU-06: Ejercicios
+Campo
+	Detalle
+	Identificador
+	CU-06
+	Nombre descriptivo
+	Buscador y Biblioteca de Ejercicios
+	Descripción
+	Permite a los usuarios buscar ejercicios específicos en una biblioteca para ver información técnica, videos o imágenes demostrativas.
+	Actores
+	Usuario / Profesor.
+	Precondiciones
+	Estar dentro del apartado "Ejercicios".
+	Post condiciones
+	El usuario encuentra y visualiza la información del ejercicio buscado.
+	Secuencia Normal
+#
+	Acción (actor)
+	Reacción (sistema)
+	1
+	El actor hace clic en la barra "BUSCAR EJERCICIOS E INFO".
+	El sistema activa el estado focus de la barra, engrosando el borde y desplegando sutilmente sugerencias de búsquedas recientes justo debajo.
+	2
+	El actor comienza a escribir (ej. "Sentadilla").
+	El sistema filtra los resultados en tiempo real (debounce) y muestra una grilla de tarjetas.
+	3
+	El actor posiciona el mouse sobre la tarjeta de un ejercicio.
+	El sistema oscurece la imagen principal de la tarjeta levemente y superpone un botón de "Ver Info" (aparece con un efecto de transición de opacidad 0 a 1).
+	4
+	El actor hace clic en la tarjeta.
+	El sistema expande la información del ejercicio (músculos implicados, técnica) en un modal o nueva página fluida.
+	Excepciones
+#
+	Acción (actor)
+	Reacción (sistema)
+	6.1
+	En el caso de que la búsqueda no arroje resultados.
+	El sistema muestra en el centro de la pantalla una ilustración de estado vacío (empty state) y un texto gris que dice "No encontramos ejercicios con ese nombre".
+	6.2
+	Falla la carga del video o imagen demostrativa en el modal de detalle.
+	El reproductor se sustituye por una silueta gris de marcador de posición (placeholder) con el texto "Contenido multimedia no disponible temporalmente".
+	
+
+Importancia
+	Importante
+	Urgencia
+	Puede esperar
+	Comentarios
+	Optimizar la carga de imágenes para que el filtrado en tiempo real se sienta veloz y responsivo.
+	CU-07: Ajustes
+Campo
+	Detalle
+	Identificador
+	CU-07
+	Nombre descriptivo
+	Configuración General (Ajustes)
+	Descripción
+	Permite al usuario gestionar su cuenta (contraseña, tema visual, suscripciones, soporte).
+	Actores
+	Usuario / Profesor.
+	Precondiciones
+	Estar autenticado y acceder a la pestaña "Ajustes".
+	Post condiciones
+	Las preferencias del usuario se aplican y se persisten en la base de datos/local storage.
+	Secuencia Normal
+#
+	Acción (actor)
+	Reacción (sistema)
+	1
+	El actor hace clic en "Modo Oscuro".
+	El sistema detecta el clic sobre el interruptor (toggle). El círculo del toggle se desliza fluidamente hacia la derecha, el fondo del interruptor cambia a color verde o azul activo, y toda la paleta de colores de la app realiza una transición (transition: all 0.3s ease) a tonos oscuros.
+	2
+	El actor entra a la subsección "Suscripciones" y presiona "Comprar".
+	El sistema expande un formulario requiriendo "PONER DATOS". Los campos tienen micro-interacciones: al escribirse los números de tarjeta, se formatean automáticamente con espacios.
+	3
+	El actor pasa el mouse sobre el botón de pago y hace clic.
+	El botón se hunde visualmente (transform: translateY(2px)). El sistema procesa el pago mostrando una barra de progreso y luego emite un recibo digital.
+	4
+	El actor hace clic en "Cancelar" (suscripción).
+	El sistema muestra un modal de advertencia en rojo: "¿Estás seguro?". El botón de confirmar cancelación se sombrea en rojo intenso al hover.
+	5
+	El actor hace clic en "Ayuda y soporte".
+	El sistema despliega un menú lateral (drawer) con preguntas frecuentes y un formulario de contacto.
+	Excepciones
+#
+	Acción (actor)
+	Reacción (sistema)
+	7.1
+	En el caso de que la tarjeta en "Suscripciones" sea rechazada.
+	El sistema detiene el proceso de compra, el formulario vibra y se despliega un banner de error color carmesí en la parte superior indicando "Pago rechazado. Verifique los datos".
+	7.2
+	En el caso de intentar "Cambiar contraseña" ingresando una clave actual errónea.
+	El sistema marca el input en rojo y el botón de confirmar vuelve a su estado inactivo original.
+	7.3
+	El actor intenta cancelar la suscripción sin conexión a internet. 
+	El modal de advertencia impide el clic en confirmar y despliega un loader infinito con el texto "Esperando reconexión para procesar baja".
+	
+
+Importancia
+	Importante
+	Urgencia
+	Hay presión
+	Comentarios
+	La pasarela de pago para las suscripciones debe ser muy clara e inspirar seguridad mediante feedback visual inmediato.

@@ -1,0 +1,149 @@
+<link rel="stylesheet" href="Css/Rm.css">
+<link rel="stylesheet" href="../Css/Rm.css">
+
+
+    <button class="butt" onclick="OpenRm()" id="b"> < </button>
+
+    <div class="a1Rm" id="a">
+        <div class="aa">
+            <label>Peso </label>
+            <input type="number" name="1" id="kg" max="500" min="0">
+            <p> Kg</p>
+        </div>
+
+        <div class="ab">
+            <label>Repeticiones</label>
+            <input type="number" name="2" id="reps" min="0" max="36">
+        </div>
+
+        <div class="ac">
+            <label>1 Rm</label>
+            <label>2 Rm</label>
+            <label>4 Rm</label>
+            <label>6 Rm</label>
+            <label>8 Rm</label>
+            <label>10 Rm</label>
+            <label>12 Rm</label>
+            <br>
+            <label class="Rm">0</label>
+            <label class="Rm">0</label>
+            <label class="Rm">0</label>
+            <label class="Rm">0</label>
+            <label class="Rm">0</label>
+            <label class="Rm">0</label>
+            <label class="Rm">0</label>
+            <button type="button" class="Formula" id="f" onClick="CF()">Brzycki</button>
+        </div>
+
+        
+    </div>
+
+
+
+<script>
+    div = document.getElementById("a")
+    res = document.getElementsByClassName("Rm")
+    A = document.getElementById("kg")
+    B = document.getElementById("reps")
+    f = document.getElementById("f")
+    Kg = 0
+    Repeticiones = 0
+    rm = 0
+    o = false
+    formula = 1
+
+    function CF(){
+        if (formula == 1) {
+            formula = 0
+            f.textContent = "Epley"
+        } else{
+            formula = 1
+            f.textContent = "Brzycki"
+        };
+
+        
+        Calc()
+
+        res[0].textContent = String(rm)
+        res[1].textContent = String(Math.round(rm*.95))
+        res[2].textContent = String(Math.round(rm*.9))
+        res[3].textContent = String(Math.round(rm*.85))
+        res[4].textContent = String(Math.round(rm*.8))
+        res[5].textContent = String(Math.round(rm*.75))
+        res[6].textContent = String(Math.round(rm*.72))
+    };
+
+    function Calc() {
+        if (formula == 1){
+            rm = Math.round(Kg * (36 / (37 - Repeticiones)))    
+        }else{
+            rm = Math.round(Kg * (1 + (Repeticiones / 30)))
+        }
+    }
+
+    A.addEventListener("keyup", function (event) {
+        if (A.value >= 500) {
+            A.value = 500
+        }
+        if (B.value >= 36) {
+            B.value = 36
+        }
+        Kg = A.value
+        Repeticiones = B.value
+
+        //Cambio de formula
+
+        Calc()
+
+        res[0].textContent = String(rm)
+        res[1].textContent = String(Math.round(rm*.95))
+        res[2].textContent = String(Math.round(rm*.9))
+        res[3].textContent = String(Math.round(rm*.85))
+        res[4].textContent = String(Math.round(rm*.8))
+        res[5].textContent = String(Math.round(rm*.75))
+        res[6].textContent = String(Math.round(rm*.72))
+        
+    })
+
+    B.addEventListener("keyup", function (event) {
+        if (A.value >= 500) {
+            A.value = 500
+        }
+        if (B.value >= 36) {
+            B.value = 36
+        }
+        Kg = A.value
+        Repeticiones = B.value
+
+        //Cambio de formula
+
+        Calc()
+
+        res[0].textContent = String(rm)
+        res[1].textContent = String(Math.round(rm*.95))
+        res[2].textContent = String(Math.round(rm*.9))
+        res[3].textContent = String(Math.round(rm*.85))
+        res[4].textContent = String(Math.round(rm*.8))
+        res[5].textContent = String(Math.round(rm*.75))
+        res[6].textContent = String(Math.round(rm*.72))
+        
+    })
+    
+
+    function OpenRm() {
+        
+        if (o == false) {
+            div.style.display = "block";
+            o = true
+            document.getElementById("b").style.marginRight = String(window.innerWidth *.2475) + "px"
+            document.getElementById("b").textContent = '>'
+        } else{
+            div.style.display = "none";
+            o = false
+            document.getElementById("b").style.marginRight = "6px"
+            document.getElementById("b").textContent = '<'
+        }
+        
+        
+    }
+</script>

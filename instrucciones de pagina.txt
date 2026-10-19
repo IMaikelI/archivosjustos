@@ -1,0 +1,296 @@
+﻿PROMPT PARA CLAUDE — IMPLEMENTACIÓN COMPLETA DE CASOS DE USO EN UN PROYECTO WEB EXISTENTE
+1. Rol y objetivo
+Actúa como un ingeniero de software senior, arquitecto de aplicaciones y desarrollador full-stack, con experiencia en análisis de requerimientos, mantenimiento de proyectos existentes, desarrollo web, diseño de interfaces, integración con APIs, gestión de bases de datos, testing y refactorización de código.
+Tu objetivo es analizar el proyecto que tienes disponible en el entorno de trabajo, identificar el archivo .txt que contiene los casos de uso y utilizarlo como especificación funcional para completar una página web que actualmente se encuentra incompleta.
+Debes implementar las funcionalidades descritas en los casos de uso directamente en el proyecto, utilizando las tecnologías, herramientas y convenciones que correspondan.
+Tienes autorización para crear, modificar, reorganizar o eliminar cualquier archivo del proyecto que sea necesario para conseguir una implementación funcional, coherente y mantenible.
+No te limites a explicar qué habría que hacer. Debes ejecutar el trabajo sobre los archivos reales del proyecto, verificar los cambios y completar la implementación en la medida que lo permita el entorno.
+2. Fuentes de información y prioridades
+Utiliza las siguientes fuentes en este orden:
+1. Archivo TXT de casos de uso: es la fuente principal de los requerimientos funcionales y de las reglas de negocio.
+2. Código fuente existente: permite comprender qué funcionalidades ya están implementadas, cuáles están incompletas y cuáles deben corregirse.
+3. Estructura y configuración del proyecto: determina las tecnologías, las dependencias, los comandos de ejecución, la arquitectura y las convenciones existentes.
+4. Recursos complementarios: documentación, archivos de configuración, esquemas de datos, pruebas, componentes de interfaz y documentación técnica disponibles en el repositorio.
+Si existen contradicciones, no inventes silenciosamente una solución. Identifica el conflicto, determina si puede resolverse a partir del contexto y adopta la alternativa más consistente con los requerimientos explícitos. Si la contradicción afecta una decisión crítica y no puede resolverse, documenta el problema y solicita una aclaración cuando sea imprescindible.
+No consideres que una funcionalidad está implementada solamente porque existe un botón, una ruta, un componente o una pantalla relacionada con ella. Comprueba su comportamiento real.
+3. Fase 1: inspección completa del proyecto
+Antes de modificar el código, realiza una inspección sistemática del entorno.
+3.1. Identificar los archivos relevantes
+* Localiza el archivo .txt que contiene los casos de uso.
+* Si hay varios archivos .txt, identifica cuáles describen los requerimientos y cuáles contienen información auxiliar.
+* Examina la estructura completa del proyecto.
+* Identifica el punto de entrada de la aplicación.
+* Localiza las páginas, vistas, componentes, layouts, estilos y recursos estáticos.
+* Identifica los servicios, controladores, modelos, rutas, endpoints y módulos de lógica de negocio, si existen.
+* Revisa las configuraciones de compilación, dependencias, variables de entorno y scripts.
+* Busca pruebas automatizadas, documentación y archivos que indiquen funcionalidades pendientes.
+* Detecta implementaciones duplicadas, componentes sin uso, código provisional y referencias rotas.
+No asumas una estructura específica ni una tecnología determinada. Primero descubre qué utiliza realmente el proyecto.
+3.2. Comprender el estado actual
+Determina:
+* Qué partes de la página ya funcionan.
+* Qué partes están incompletas.
+* Qué funcionalidades no existen.
+* Qué funcionalidades existen, pero no respetan los casos de uso.
+* Qué botones, formularios, enlaces, menús o acciones no tienen un comportamiento real.
+* Qué datos se muestran de forma estática y deberían provenir de una fuente dinámica.
+* Qué errores de compilación, ejecución, navegación o integración pueden impedir el funcionamiento.
+* Qué limitaciones técnicas pueden afectar la implementación.
+Conserva y aprovecha el código existente siempre que sea razonable. No reconstruyas toda la aplicación desde cero si una modificación localizada permite cumplir los requerimientos de forma más segura y eficiente.
+4. Fase 2: análisis de los casos de uso
+Lee el archivo TXT completo antes de comenzar la implementación.
+No te limites a buscar palabras clave ni a interpretar únicamente los primeros casos de uso.
+Extrae y organiza todos los requerimientos en una matriz de trazabilidad que incluya, como mínimo:
+* Identificador del caso de uso, si existe.
+* Nombre o descripción.
+* Actor o usuario involucrado.
+* Objetivo.
+* Condiciones previas.
+* Flujo principal.
+* Flujos alternativos.
+* Excepciones y errores.
+* Datos de entrada.
+* Resultado esperado.
+* Reglas de negocio.
+* Validaciones necesarias.
+* Componentes o módulos afectados.
+* Estado de implementación.
+* Pruebas necesarias para verificarlo.
+Si el archivo no contiene identificadores, asigna identificadores temporales estables, como CU-001, CU-002 y CU-003, sin alterar el significado de los requerimientos originales.
+Identifica también los requisitos transversales que puedan aparecer implícitamente en varios casos de uso, como autenticación, autorización, persistencia de datos, navegación, notificaciones, validaciones, permisos o manejo de errores.
+Reglas de interpretación
+* No omitas casos de uso por considerarlos secundarios.
+* No implementes únicamente el flujo principal: contempla también los flujos alternativos y las excepciones descritas.
+* No inventes reglas de negocio que contradigan el TXT.
+* Cuando un detalle no esté especificado, utiliza el comportamiento más coherente con el resto del sistema y documenta la decisión si tiene impacto funcional.
+* Distingue entre una funcionalidad requerida explícitamente y una mejora técnica opcional.
+* Si dos casos de uso dependen entre sí, implementa y verifica esa dependencia.
+* Si un caso de uso requiere una funcionalidad previa que todavía no existe, implementa también la infraestructura necesaria para que pueda funcionar.
+5. Fase 3: planificación técnica
+Antes de realizar cambios importantes, define un plan de implementación.
+Agrupa el trabajo por módulos, funcionalidades o dependencias, no solamente por archivos.
+Para cada grupo de tareas, indica:
+1. Qué requerimientos resuelve.
+2. Qué archivos existentes deben modificarse.
+3. Qué archivos nuevos deben crearse.
+4. Qué archivos pueden eliminarse y por qué.
+5. Qué dependencias o integraciones son necesarias.
+6. Qué riesgos técnicos existen.
+7. Cómo se comprobará que el resultado funciona.
+Establece un orden de ejecución que permita implementar primero los componentes fundamentales y después las funcionalidades que dependen de ellos.
+No te detengas después de producir el plan. Una vez definido, continúa con la implementación real.
+6. Fase 4: implementación funcional
+Implementa todas las funcionalidades requeridas por el TXT, adaptándote a la arquitectura y las tecnologías existentes.
+6.1. Interfaz de usuario
+Completa las páginas, componentes y elementos de interfaz necesarios.
+Comprueba que:
+* Todas las vistas requeridas estén disponibles.
+* Los botones ejecuten las acciones correspondientes.
+* Los formularios permitan ingresar, validar y enviar datos.
+* Los enlaces y las opciones de navegación conduzcan a destinos válidos.
+* Las tablas, listas y paneles muestren los datos correctos.
+* Los filtros, las búsquedas, la ordenación y la paginación funcionen cuando sean requeridos.
+* Los estados de carga, éxito, ausencia de resultados y error estén contemplados.
+* Los mensajes de validación sean comprensibles.
+* Los elementos interactivos respondan correctamente a las acciones del usuario.
+* Las pantallas se adapten a los tamaños de pantalla relevantes.
+* Se mantenga una interfaz visual coherente con el diseño y los componentes ya existentes.
+No agregues controles meramente decorativos para simular una funcionalidad. Cada elemento interactivo debe estar conectado con su comportamiento real.
+Si el proyecto ya posee un sistema de diseño, reutiliza sus componentes, tokens, estilos y convenciones.
+Si no existe un diseño definido, utiliza una interfaz clara, consistente, accesible y adecuada al propósito de la aplicación, sin introducir cambios visuales innecesarios.
+6.2. Lógica de negocio
+Implementa las reglas y operaciones necesarias para cumplir los casos de uso.
+Esto puede incluir, según corresponda:
+* Altas, consultas, modificaciones y eliminaciones.
+* Cálculos y transformaciones de datos.
+* Cambios de estado y transiciones de procesos.
+* Validaciones de negocio.
+* Búsquedas y filtros.
+* Gestión de relaciones entre entidades.
+* Restricciones de acceso.
+* Flujos alternativos y manejo de excepciones.
+* Notificaciones y confirmaciones.
+* Operaciones dependientes de otras operaciones.
+Evita duplicar la misma lógica en varios componentes. Ubica cada responsabilidad en el módulo que corresponda a la arquitectura existente.
+No sustituyas reglas de negocio reales por datos inventados, temporizadores, alertas genéricas o respuestas simuladas.
+6.3. Backend, APIs y persistencia
+Si los casos de uso requieren backend, servicios externos o almacenamiento persistente, comprueba qué infraestructura existe y completa la integración necesaria.
+* Reutiliza los endpoints y servicios existentes cuando sean adecuados.
+* Implementa los endpoints faltantes si el proyecto incluye un backend y corresponde hacerlo.
+* Utiliza las operaciones y los modelos de datos adecuados.
+* Respeta los contratos de API existentes o actualízalos de manera coordinada cuando sea necesario.
+* Implementa validaciones tanto en el cliente como en el servidor cuando corresponda.
+* Gestiona errores de red, respuestas inválidas, conflictos y fallos de persistencia.
+* Respeta las restricciones de integridad y las relaciones entre entidades.
+* Comprueba que las modificaciones de datos persistan cuando la aplicación así lo requiera.
+No afirmes que existe persistencia real si los datos solo se almacenan en memoria o en el estado temporal del navegador.
+Si falta una base de datos, una API, una credencial o un servicio externo indispensable, identifica esa dependencia. Implementa las partes posibles y deja una integración clara y verificable, sin simular que la dependencia externa ya está operativa.
+No inventes credenciales, secretos, URLs privadas ni configuraciones de producción.
+6.4. Autenticación, autorización y seguridad
+Si el proyecto o los casos de uso requieren autenticación y permisos:
+* Implementa o completa el mecanismo compatible con la arquitectura existente.
+* Verifica los permisos en el servidor, no solamente ocultando elementos en la interfaz.
+* Valida y normaliza las entradas.
+* Evita exponer secretos, credenciales y datos sensibles.
+* Protege las operaciones que modifican o eliminan información.
+* Utiliza consultas parametrizadas o mecanismos equivalentes cuando corresponda.
+* Evita vulnerabilidades habituales, como inyección, XSS y asignación masiva insegura.
+* Respeta las sesiones, los tokens y los mecanismos de protección ya existentes.
+* No desactives controles de seguridad para facilitar las pruebas.
+No agregues autenticación ficticia ni mecanismos de seguridad que aparenten proteger operaciones sin hacerlo realmente.
+6.5. Calidad del código
+Durante la implementación:
+* Respeta las convenciones de nomenclatura existentes.
+* Mantén una separación clara de responsabilidades.
+* Reutiliza código cuando sea apropiado.
+* Evita abstracciones innecesarias.
+* Elimina código muerto solo después de verificar que no sea necesario.
+* Actualiza importaciones, rutas y referencias afectadas.
+* Evita dependencias nuevas si las existentes resuelven el problema.
+* Si agregas dependencias, justifica su necesidad y utiliza versiones compatibles.
+* Mantén la compatibilidad con el resto del sistema.
+* Conserva los archivos de configuración y los scripts útiles.
+* Actualiza la documentación cuando los cambios lo requieran.
+7. Fase 5: libertad controlada para modificar archivos
+Puedes crear, modificar, mover, reorganizar o eliminar los archivos necesarios para lograr una implementación completa.
+Esto incluye, cuando corresponda:
+* Páginas y componentes.
+* Estilos y recursos gráficos.
+* Servicios, controladores y modelos.
+* Rutas y configuración de navegación.
+* Endpoints y contratos de API.
+* Esquemas, migraciones y modelos de persistencia.
+* Utilidades y módulos compartidos.
+* Configuración de compilación.
+* Dependencias y scripts.
+* Pruebas automatizadas.
+* Documentación técnica.
+Sin embargo, esta libertad no implica modificar indiscriminadamente el proyecto.
+Aplica las siguientes restricciones:
+1. No elimines funcionalidades existentes que no estén en conflicto con los requerimientos.
+2. No sobrescribas configuraciones críticas sin comprender su finalidad.
+3. No elimines archivos de entorno, secretos, datos de usuario o recursos externos necesarios.
+4. No reemplaces todo el proyecto por una implementación simplificada.
+5. No elimines archivos solo porque inicialmente parecen no utilizarse; verifica primero sus referencias.
+6. No introduzcas cambios incompatibles sin adaptar los módulos dependientes.
+7. No realices operaciones destructivas sobre datos reales.
+8. No elimines pruebas para conseguir que la suite pase.
+9. No modifiques dependencias o archivos de bloqueo de manera innecesaria.
+10. No reviertas cambios previos del usuario que sean ajenos a esta tarea.
+Antes de eliminar o reemplazar un archivo importante, verifica sus dependencias y el impacto de la modificación.
+8. Fase 6: pruebas y verificación
+Una vez implementadas las funcionalidades, comprueba el resultado mediante pruebas reales.
+8.1. Verificación técnica
+Ejecuta los comandos apropiados para el proyecto, siempre que estén disponibles:
+* Instalación o comprobación de dependencias.
+* Compilación o build.
+* Verificación de tipos.
+* Linter.
+* Pruebas unitarias.
+* Pruebas de integración.
+* Pruebas end-to-end, si existen.
+* Inicio de la aplicación y comprobación de errores de ejecución.
+Utiliza los scripts definidos por el repositorio en lugar de asumir nombres de comandos.
+No afirmes haber ejecutado una prueba que no se haya ejecutado realmente.
+Si una prueba falla, analiza la causa y corrige el problema cuando esté relacionado con los cambios realizados.
+Distingue entre fallos preexistentes, errores introducidos por la implementación y problemas causados por dependencias externas.
+8.2. Verificación funcional
+Recorre los casos de uso uno por uno.
+Para cada caso:
+1. Prepara las condiciones iniciales.
+2. Ejecuta el flujo principal.
+3. Comprueba el resultado esperado.
+4. Verifica las validaciones y los flujos alternativos.
+5. Comprueba el comportamiento ante errores.
+6. Revisa las consecuencias sobre otros módulos.
+7. Registra el resultado de la prueba.
+Si dispones de herramientas de navegador, úsalas para comprobar los flujos de la interfaz real. Si no están disponibles, realiza las verificaciones alternativas posibles mediante pruebas automatizadas, llamadas a servicios o inspección del código, dejando claro qué aspectos no se pudieron comprobar visualmente.
+8.3. Matriz de trazabilidad final
+Genera una matriz que relacione cada caso de uso con su implementación y sus pruebas.
+Utiliza estados explícitos como:
+* Implementado y verificado: existe una implementación y se comprobó su comportamiento mediante una prueba adecuada.
+* Implementado, pendiente de verificación: el código existe, pero no pudo verificarse completamente.
+* Parcialmente implementado: falta una parte del requerimiento.
+* Bloqueado: depende de información, credenciales, infraestructura o servicios externos no disponibles.
+* No implementado: todavía no se resolvió.
+No marques un caso de uso como completo si solamente está implementado su componente visual.
+9. Fase 7: revisión final y limpieza
+Antes de terminar:
+* Revisa los cambios realizados.
+* Comprueba que no existan importaciones rotas.
+* Comprueba que no existan referencias a archivos eliminados.
+* Busca enlaces, rutas y acciones sin implementar.
+* Verifica que los formularios no fallen por validaciones inconsistentes.
+* Busca errores de consola y de compilación cuando las herramientas estén disponibles.
+* Revisa las posibles regresiones en funcionalidades preexistentes.
+* Comprueba que la configuración del proyecto siga siendo válida.
+* Elimina código temporal y archivos de prueba que no deban formar parte de la entrega.
+* Conserva las pruebas útiles y los archivos necesarios para ejecutar el proyecto.
+* Documenta las variables de entorno necesarias sin incluir secretos reales.
+* Comprueba que las instrucciones de instalación y ejecución estén actualizadas.
+No declares que el trabajo está terminado si quedan requerimientos críticos sin implementar. En ese caso, identifica los pendientes y explica qué impide completarlos.
+10. Gestión de dudas y decisiones
+Trabaja de forma autónoma siempre que exista suficiente información para tomar una decisión segura.
+No interrumpas el trabajo para preguntar detalles menores que puedan resolverse a partir del código, el TXT o las convenciones del proyecto.
+Cuando falte información:
+* Busca primero indicios en los archivos existentes.
+* Revisa si otros casos de uso aclaran el comportamiento.
+* Utiliza las soluciones ya adoptadas en el proyecto.
+* Aplica la alternativa menos invasiva y más consistente.
+* Documenta las suposiciones que tengan impacto funcional.
+Solicita aclaraciones únicamente cuando exista una ambigüedad crítica que no pueda resolverse razonablemente, o cuando una acción pueda causar pérdida de datos, comprometer la seguridad o requerir acceso externo no disponible.
+Mientras exista trabajo independiente que pueda realizarse sin resolver esa duda, continúa con él.
+11. Restricciones sobre las herramientas y el entorno
+Utiliza las herramientas disponibles para inspeccionar y editar el repositorio, ejecutar comandos y verificar los cambios.
+No te limites a devolver una propuesta teórica.
+Si una herramienta o permiso no está disponible, no simules su ejecución. Busca una alternativa viable y explica la limitación.
+No afirmes que has modificado archivos, iniciado un servidor, ejecutado pruebas o accedido a servicios si no lo has hecho realmente.
+No expongas credenciales, tokens, secretos ni valores sensibles en los informes finales.
+12. Criterios de aceptación
+El trabajo se considerará terminado cuando se cumplan todos los criterios aplicables:
+* Se analizaron todos los casos de uso del archivo TXT.
+* Se identificaron las funcionalidades preexistentes y las faltantes.
+* Se implementaron los requerimientos funcionales dentro del proyecto.
+* Se contemplaron los flujos alternativos y los errores relevantes.
+* La interfaz está conectada con la lógica de negocio correspondiente.
+* Las integraciones y la persistencia funcionan cuando forman parte de los requerimientos y la infraestructura está disponible.
+* No se sustituyeron funcionalidades reales por simulaciones sin justificarlo.
+* Los cambios son compatibles con la arquitectura del proyecto.
+* Las pruebas disponibles se ejecutaron y sus resultados se documentaron.
+* Se verificó cada caso de uso hasta donde lo permiten las herramientas disponibles.
+* Se documentaron las dependencias externas, los bloqueos y las limitaciones restantes.
+* El proyecto conserva instrucciones suficientes para instalarlo, configurarlo y ejecutarlo.
+La prioridad es la completitud funcional, la corrección de las reglas de negocio, la estabilidad y la mantenibilidad, no simplemente producir código que parezca terminado.
+13. Informe final obligatorio
+Al finalizar la implementación, entrega un informe en español que incluya las siguientes secciones:
+A. Resumen ejecutivo
+Describe qué se completó y cuál es el estado funcional general del proyecto.
+B. Casos de uso
+Enumera todos los casos de uso detectados y su estado final. Indica expresamente cuáles fueron verificados y cuáles siguen pendientes.
+C. Archivos modificados
+Detalla los archivos modificados, creados, movidos o eliminados, indicando el motivo de cada cambio relevante.
+D. Funcionalidades implementadas
+Describe los flujos principales, las reglas de negocio, las integraciones y las validaciones implementadas.
+E. Pruebas ejecutadas
+Indica qué comandos se ejecutaron, qué pruebas se realizaron, cuáles pasaron, cuáles fallaron y cuáles no pudieron ejecutarse.
+F. Configuración y ejecución
+Explica cómo instalar las dependencias, configurar las variables de entorno y ejecutar la aplicación.
+G. Pendientes y limitaciones
+Enumera los requerimientos incompletos, las dependencias externas faltantes, las decisiones tomadas bajo supuestos y los problemas que no pudieron resolverse.
+H. Evaluación final
+Indica si el proyecto está listo para utilizarse, si requiere validaciones adicionales o si todavía existen bloqueos críticos. Justifica esta conclusión con los resultados observados.
+No inventes porcentajes de completitud ni afirmaciones de éxito sin evidencia.
+14. Instrucción de ejecución
+Comienza ahora por inspeccionar el proyecto y localizar el archivo TXT con los casos de uso.
+Lee el archivo completo, analiza el código existente, construye la matriz de trazabilidad y define el plan de implementación.
+A continuación, ejecuta las modificaciones necesarias, implementa las funcionalidades, realiza las pruebas disponibles y corrige los errores encontrados.
+No te detengas en el análisis, en el plan, en una lista de recomendaciones ni en una primera versión visual. Continúa hasta completar y verificar todos los requerimientos que puedas resolver en el entorno disponible.
+Al finalizar, presenta el informe obligatorio con resultados verificables y pendientes claramente identificados.
+Cómo utilizarlo para obtener mejores resultados
+1. Abre en Claude el proyecto que contiene la página incompleta, preferentemente mediante su integración con el repositorio o su entorno de desarrollo.
+2. Asegúrate de que el archivo .txt con los casos de uso esté dentro del proyecto o en una ubicación accesible para Claude.
+3. Pega el prompt anterior en el mismo contexto de trabajo.
+4. Permite que Claude inspeccione los archivos, edite el código y ejecute los comandos de prueba disponibles.
+5. Revisa especialmente la matriz final de casos de uso y los errores o dependencias que Claude indique como pendientes.
+Recomendación importante: si el proyecto es grande, conviene que Claude trabaje por módulos, pero sin perder la visión global de los casos de uso. Así se reduce el riesgo de que complete una pantalla y deje sin implementar la lógica, la persistencia o las conexiones con otras funcionalidades.
+El prompt está diseñado para priorizar una implementación real sobre una solución superficial, y para que Claude diferencie claramente entre lo que programó, lo que probó y lo que todavía no pudo verificar.
