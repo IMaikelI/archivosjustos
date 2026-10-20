@@ -1,0 +1,56 @@
+<!-- CU-04: Calculadora de Repetición Máxima. Se incluye en todas las páginas con sesión (layout.php). -->
+<button type="button" class="rm-fab" id="rmToggle" aria-controls="rmPanel" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18.5h2M14 18.5h2"/></svg>
+    <span>Calculadora RM</span>
+</button>
+
+<aside class="rm-panel" id="rmPanel" aria-labelledby="rmTitle" hidden>
+    <div class="rm-panel__head">
+        <h2 id="rmTitle">Calculadora RM</h2>
+        <button type="button" class="btn btn-ghost btn-icon" id="rmClose" aria-label="Cerrar calculadora">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+    </div>
+    <p class="muted small">Estimá tu peso máximo para una repetición (1RM).</p>
+
+    <div class="dropdown field" id="rmMethod">
+        <span class="label" id="rmMethodLabel">Método</span>
+        <button type="button" class="btn btn-block rm-method" id="rmMethodBtn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="rmMethodLabel rmMethodBtn">
+            <span id="rmMethodText">ELEGIR MÉTODO DE CÁLCULO</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <ul class="dropdown__menu" id="rmMenu" role="listbox" aria-labelledby="rmMethodLabel" tabindex="-1" hidden>
+            <li role="option" data-method="brzycki" aria-selected="false">Brzycki<small>peso × 36 / (37 − reps)</small></li>
+            <li role="option" data-method="epley" aria-selected="false">Epley<small>peso × (1 + reps / 30)</small></li>
+            <li role="option" data-method="lander" aria-selected="false">Lander<small>100 × peso / (101,3 − 2,67 × reps)</small></li>
+            <li role="option" data-method="lombardi" aria-selected="false">Lombardi<small>peso × reps^0,10</small></li>
+        </ul>
+    </div>
+
+    <form id="rmForm" novalidate>
+        <div class="rm-inputs">
+            <div class="field">
+                <label for="rmKg">Peso (kg)</label>
+                <input class="input" type="number" id="rmKg" inputmode="decimal" min="0.5" max="1000" step="0.5" placeholder="Ej. 80">
+            </div>
+            <div class="field">
+                <label for="rmReps">Repeticiones</label>
+                <input class="input" type="number" id="rmReps" inputmode="numeric" min="1" max="100" step="1" placeholder="Ej. 5">
+            </div>
+        </div>
+        <p class="rm-warning" id="rmWarn" role="status" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17.5v.5"/></svg>
+            <span id="rmWarnText"></span>
+        </p>
+        <button type="submit" class="btn btn-dark btn-block rm-calc" id="rmCalc" disabled>Calcular</button>
+    </form>
+
+    <div class="rm-result" id="rmResult" hidden aria-live="polite">
+        <p class="eyebrow" id="rmResultMethod"></p>
+        <div class="rm-result__big"><span id="rmOne">0</span><small>kg · 1RM</small></div>
+        <table class="table rm-table">
+            <thead><tr><th>Repeticiones</th><th>% del 1RM</th><th>Peso</th></tr></thead>
+            <tbody id="rmTable"></tbody>
+        </table>
+    </div>
+</aside>

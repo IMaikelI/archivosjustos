@@ -1,0 +1,153 @@
+CREATE TABLE Users (id int PRIMARY KEY AUTO_INCREMENT, Name text, Email text, Pass text, Works text, Photo text, records text, master boolean);
+CREATE TABLE Works (id int PRIMARY KEY AUTO_INCREMENT, UserId int, Name text, Ejercicios text, Sets text, Reps text);
+CREATE TABLE Ejercicios (id int PRIMARY KEY, Name text, Type text, Mu int);
+CREATE TABLE Tokens (n int PRIMARY KEY, date DATETIME, ruti int);
+
+insert into Users values (1, "Ejemplo", "Ejemplo@gmail.com", "1234", "001, 007, 009", "https://img.freepik.com/fotos-premium/letra-l-alfabeto-fuego-aislada-sobre-fondo-negro_564276-9249.jpg", "1001, 10 - 10/5. 15 - 17/5; 2001, 40 - 12/5. 50 - 19/5", FALSE);
+insert into Users values (0, "!Usuario", "--", "", "","", "png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png", "--");
+insert into Works values (1, 1, "Ejemplo", "101, 201, 309, 102", "3-2, 3, 6, 2", "4-4, 4, 6, 4");
+-- Musculos
+INSERT INTO Ejercicios (id, Name, Type, Mu) VALUES
+-- PECHO
+(101, 'Press de banca plano con barra', 'Libre', 0),
+(102, 'Press de banca inclinado con barra', 'Libre', 0),
+(103, 'Press de banca declinado con barra', 'Libre', 0),
+(104, 'Press de banca plano con mancuernas', 'Libre', 0),
+(105, 'Press de banca inclinado con mancuernas', 'Libre', 0),
+(106, 'Press de banca declinado con mancuernas', 'Libre', 0),
+(107, 'Aperturas con mancuernas plano', 'Libre', 0),
+(108, 'Aperturas con mancuernas inclinado', 'Libre', 0),
+(109, 'Cruce de poleas (cable crossover)', 'Cable', 0),
+(110, 'Press en maquina Smith plano', 'Libre', 0),
+(111, 'Press en maquina Smith inclinado', 'Libre', 0),
+(112, 'Fondos en paralelas (dips) para pecho', 'Libre', 0),
+(113, 'Flexiones de brazos (push-ups)', 'Libre', 0),
+(114, 'Flexiones con manos cerradas', 'Libre', 0),
+(115, 'Flexiones con pies elevados', 'Libre', 0),
+(116, 'Pullover con mancuerna', 'Libre', 0),
+(117, 'Press en maquina Hammer Strength plano', 'Libre', 0),
+(118, 'Press en maquina Hammer Strength inclinado', 'Libre', 0),
+(119, 'Peck deck (contractora de pecho)', 'Libre', 0),
+(120, 'Press con banda elastica', 'Libre', 0),
+
+-- ESPALDA
+(201, 'Dominadas pronas (pull-ups)', 'Libre', 1),
+(202, 'Dominadas supinas (chin-ups)', 'Libre', 1),
+(203, 'Remo con barra', 'Libre', 1),
+(204, 'Remo con mancuerna a un brazo', 'Libre', 1),
+(205, 'Remo en maquina sentado (cable row)', 'Cable', 1),
+(206, 'Jalon al pecho (lat pulldown)', 'Cable', 1),
+(207, 'Jalon tras nuca', 'Cable', 1),
+(208, 'Peso muerto convencional', 'Libre', 1),
+(209, 'Peso muerto rumano', 'Libre', 1),
+(210, 'Remo en maquina Hammer Strength', 'Libre', 1),
+(211, 'Remo en punta (T-bar row)', 'Libre', 1),
+(212, 'Pull-over en polea alta', 'Cable', 1),
+(213, 'Remo invertido (Australian pull-up)', 'Libre', 1),
+(214, 'Jalon con agarre cerrado', 'Cable', 1),
+(215, 'Remo con barra agarre supino', 'Libre', 1),
+(216, 'Face pull', 'Cable', 1),
+(217, 'Hiperextensiones lumbares', 'Libre', 1),
+(218, 'Remo Pendlay', 'Libre', 1),
+(219, 'Jalon unilateral en polea', 'Cable', 1),
+(220, 'Encogimientos con barra (shrugs)', 'Libre', 1),
+
+-- BICEPS
+(401, 'Curl con barra recta', 'Libre', 3),
+(402, 'Curl con barra Z', 'Libre', 3),
+(403, 'Curl con mancuernas alterno', 'Libre', 3),
+(404, 'Curl martillo', 'Libre', 3),
+(405, 'Curl concentrado', 'Libre', 3),
+(406, 'Curl en banco Scott (predicador)', 'Libre', 3),
+(407, 'Curl en polea baja', 'Cable', 3),
+(408, 'Curl en polea alta (doble polea)', 'Cable', 3),
+(409, 'Curl 21s', 'Libre', 3),
+(410, 'Curl con banda elastica', 'Libre', 3),
+(411, 'Curl spider', 'Libre', 3),
+(412, 'Curl inclinado con mancuernas', 'Libre', 3),
+(413, 'Curl con cuerda en polea', 'Cable', 3),
+(414, 'Curl con barra EZ agarre cerrado', 'Libre', 3),
+(415, 'Curl con barra EZ agarre ancho', 'Libre', 3),
+(416, 'Curl cruzado (crossbody curl)', 'Libre', 3),
+(417, 'Curl isometrico', 'Libre', 3),
+(418, 'Curl con mancuernas en supinacion', 'Libre', 3),
+(419, 'Curl unilateral en polea baja', 'Cable', 3),
+(420, 'Curl drag (drag curl)', 'Libre', 3),
+
+-- TRICEPS
+(501, 'Press frances con barra', 'Libre', 4),
+(502, 'Press frances con mancuerna', 'Libre', 4),
+(503, 'Extension de triceps en polea alta (pushdown)', 'Cable', 4),
+(504, 'Extension de triceps con cuerda', 'Cable', 4),
+(505, 'Extension de triceps unilateral en polea', 'Cable', 4),
+(506, 'Patada de triceps (kickback)', 'Libre', 4),
+(507, 'Fondos en banco (bench dips)', 'Libre', 4),
+(508, 'Fondos en paralelas para triceps', 'Libre', 4),
+(509, 'Press cerrado con barra (close grip bench press)', 'Libre', 4),
+(510, 'Extension sobre la cabeza con mancuerna', 'Libre', 4),
+(511, 'Extension sobre la cabeza con polea', 'Cable', 4),
+(512, 'Jalon de triceps con barra recta', 'Cable', 4),
+(513, 'Jalon de triceps con barra V', 'Cable', 4),
+(514, 'Extension acostado con mancuernas (skull crusher)', 'Libre', 4),
+(515, 'Press JM', 'Libre', 4),
+(516, 'Extension unilateral con mancuerna sobre la cabeza', 'Libre', 4),
+(517, 'Flexiones diamante (diamond push-ups)', 'Libre', 4),
+(518, 'Extension de triceps en maquina', 'Libre', 4),
+(519, 'Kickback en polea baja', 'Cable', 4),
+(520, 'Press de banca agarre cerrado en Smith', 'Libre', 4),
+
+-- CUADRICEPS
+(601, 'Sentadilla libre con barra', 'Libre', 5),
+(602, 'Sentadilla frontal', 'Libre', 5),
+(603, 'Prensa de piernas (leg press)', 'Libre', 5),
+(604, 'Extension de cuadriceps en maquina', 'Libre', 5),
+(605, 'Sentadilla en maquina Smith', 'Libre', 5),
+(606, 'Sentadilla bulgara', 'Libre', 5),
+(607, 'Zancadas (lunges) con mancuernas', 'Libre', 5),
+(608, 'Sentadilla goblet', 'Libre', 5),
+(609, 'Sentadilla hack (hack squat)', 'Libre', 5),
+(610, 'Zancadas caminando', 'Libre', 5),
+(611, 'Sentadilla sumo', 'Libre', 5),
+(612, 'Step up con mancuernas', 'Libre', 5),
+(613, 'Sentadilla pistol asistida', 'Libre', 5),
+(614, 'Sentadilla en multipower talones elevados', 'Libre', 5),
+(615, 'Extension unilateral de cuadriceps', 'Libre', 5),
+
+-- ISQUIOS
+(701, 'Peso muerto rumano con barra', 'Libre', 6),
+(702, 'Curl femoral acostado en maquina', 'Libre', 6),
+(703, 'Curl femoral sentado en maquina', 'Libre', 6),
+(704, 'Peso muerto con piernas rigidas', 'Libre', 6),
+(705, 'Buenos dias (good mornings)', 'Libre', 6),
+(706, 'Peso muerto rumano con mancuernas', 'Libre', 6),
+(707, 'Curl femoral de pie unilateral', 'Libre', 6),
+(708, 'Hip thrust con barra', 'Libre', 6),
+(709, 'Puente de gluteos con isquios', 'Libre', 6),
+(710, 'Peso muerto sumo', 'Libre', 6),
+(711, 'Curl nordico', 'Libre', 6),
+(712, 'Swing con kettlebell', 'Libre', 6),
+(713, 'Peso muerto rumano a una pierna', 'Libre', 6),
+(714, 'Curl femoral con banda elastica', 'Libre', 6),
+(715, 'Elevacion de cadera en maquina', 'Libre', 6),
+
+-- GEMELOS
+(801, 'Elevacion de talones de pie', 'Libre', 7),
+(802, 'Elevacion de talones sentado', 'Libre', 7),
+(803, 'Elevacion de talones en prensa de piernas', 'Libre', 7),
+(804, 'Elevacion de talones en maquina Smith', 'Libre', 7),
+(805, 'Elevacion de talones a una pierna', 'Libre', 7),
+(806, 'Elevacion de talones en step', 'Libre', 7),
+(807, 'Elevacion de talones con mancuernas', 'Libre', 7),
+(808, 'Elevacion de talones en burro (donkey calf raise)', 'Libre', 7),
+(809, 'Saltos de cuerda para gemelos', 'Libre', 7),
+(810, 'Elevacion de talones isometrica', 'Libre', 7),
+(811, 'Elevacion de talones en hack squat', 'Libre', 7),
+(812, 'Elevacion de talones con barra', 'Libre', 7),
+(813, 'Caminata en punta de pies', 'Libre', 7),
+(814, 'Elevacion de talones explosiva (jump calf raise)', 'Libre', 7),
+(815, 'Elevacion de talones unilateral en maquina', 'Libre', 7);
+CREATE EVENT borrar_tokens
+ON SCHEDULE EVERY 30 MINUTE
+STARTS CURRENT_TIMESTAMP
+DO
+  DELETE FROM Tokens WHERE date > NOW() - INTERVAL 30 MINUTE;
